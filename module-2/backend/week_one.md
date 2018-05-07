@@ -1,61 +1,143 @@
-## Week One - Module 2 Recap
+common verbs in http
+      * get, post
 
-Fork this respository. Answer the questions to the best of your ability. Try to answer them with limited amount of external research. These questions cover the majority of what we've learned this week (which is a TON!). 
+      get verb is used to get info from the server as oppose to post which provides
+      info to the server.
 
-Note: When you're done, submit a PR. 
+      * put
 
-### Week 1 Questions
+      put verb is used to  update a content
 
-1. List the five common HTTP verbs and what the purpose is of each verb.
-2. What is Sinatra?
-4. What is MVC?
-5. Why do we follow conventions when creating our actions/path names in our Sinatra routes?
-6. What types of variables are accessible in our view templates without explicitly passing them?
-7. Given the following block of code, how would I pass an instance variable `count` with a value of `1` to my `index.erb` template?
-  
-  ```ruby
-  get '/horses' do
-    erb :index
-  end
-  ```
+      * delete
+
+      to delete
+
+      * patch
+      patch is used to update or replace  content
+
+what is sinatra?
+ * sinatra is a software web application library
+
+
+what is MVC?
+
+MVC stands for Modle views and contriller. I think HTTP works with the principle
+of mvc.
+
+
+we have to follow the convention because activerecord and sinatra works thst way only
+such as: naming things plural or singular in many cases matters.
+
+
+instance variables from controllers are available in erb files.
+
+
+this is how we pass instance variable to erb files
+get '/horses' do
+@count = 1
+  erb :index
+end
+
 
 8. In the same code block, how would I pass a local variable `name` with a value of `Mr. Ed` to the view?
-9. What's the purpose of ERB?
-10. Why do I need a development AND test database?
-11. What is CRUD and why is it important?
-12. What does HTTP stand for? 
-13. What are the two ways to interpolate Ruby in an ERB view template? What's the difference between these two ways?
-14. What's an ORM?
-15. What's the most commonly used ORM in ruby (Sinatra & Rails)?
-16. Let's say we have an application with restaurants. There are seven verb + path combinations necessary to provide full CRUD functionality for our restaurant application. List each of the seven combinations, and explain what each is for.
-17. What's a migration? 
-18. When you create a migration, does it automatically modify your database?
-19. How does a model relate to a database?
-20. What is the difference between `#new` and `#create`?
 
-### Review Questions:  
-21. Given a CSV file (“films.csv”) with these headers [id, title, description], how would you load these into your database to create new instances of Film?  
-22. Given the following hash:
-```
+
+ERB is being use to translate ruby into html.
+we need development and test database to make sure we do not mess up our
+datas.
+
+
+CRUD is list of operations we can perform on a resource.
+create  read update and delete.
+
+HTTP stands for hypertext transfer protocol.
+
+
+following are the two ways to interpolate ruby in an ERB file.
+<%= something %>
+<%end%>
+
+<%something%>
+<%end%>
+
+
+ORM is Object relational mapper
+Activerecord is the most commonly used orm in ruby.
+
+
+seven verb and paths for application with restaurants.
+
+
+1.get "/" do
+end
+
+takes us to homepage
+
+2. get "/menu" do
+end
+
+takes us to menu of that restaurant.
+
+3. post '/new-account' do
+end
+lets us make a new account
+
+4. get '/customers' do
+end
+shows us the customer lists.
+
+5. delete '/customers' do
+end
+
+once we click delete button for a customer profile then server deletes the account
+through this path.
+
+6. put '/customers/:id' do
+end
+
+we can modify profile of a customer through this path.
+
+
+
+what is migration?
+
+migration migrates data to the database.
+when we create a migration , it modifies the database.
+
+Model asks database the info asked by the controller.
+
+# new is to make new instance of a class
+# create is active record method to make new instance of a model.
+
+this is how we create instance of Film using csv file.
+films = Csv.open(.......)
+films.each do |film|
+
+Film.create(id: film[id]
+            title: film[title]
+            description: film[description])
+
+end
+
+
+
+How would I add 'granola bar' to things you should have when hiking?
+23. What are the 4 Principles of OOP? Give a one sentence explanation of each.
 activities = {
   hiking: {cost: $0, supplies: ['hiking shoes', 'water', 'compass']},
   karaoke: {cost: $10, supplies: ['courage', 'microphone'],
   brunch: {cost: $35, supplies: ['mimosa flutes'],
-  antiquing: {cost: $200, supplies: ['list of antique stores'] 
+  antiquing: {cost: $200, supplies: ['list of antique stores']
 }
-```
-How would I add 'granola bar' to things you should have when hiking?
-23. What are the 4 Principles of OOP? Give a one sentence explanation of each.
+
+
+answer : activities[:hiking][:supplies] << 'granola bar'
+
+
 
 
 ### Self Assessment:
-Choose One:
-* I was able to answer every question without relying on outside resources
 * I was able to answer most questions independently, but utilized outside resources for a few
-* I was able to answer a few questions independently, but relied heavily on outside resources 
 
 Choose One:
-* I feel confident about the content presented this week
 * I feel comfortable with the content presented this week
-* I feel overwhelmed by the content presented this week
-* I feel quite lost by the content presented this week
